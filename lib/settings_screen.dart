@@ -12,7 +12,8 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  final CounterController _counterController = Get.put(CounterController());
+  //final CounterController _counterController = Get.put(CounterController()); // can write in multiple pages
+  //final CounterController _counterController = Get.find<CounterController>(); // ^ or, find if previously put in another page.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +22,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Obx(() =>
+            // Obx(() => // used GetBuilder instead below
             //     Text(
             //       '${_counterController.counter}',
             //       style:
@@ -29,9 +30,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             //     ),
             // ),
             GetBuilder<CounterController>(
-                builder: (counterController){
+                builder: (controller){
                   return Text(
-                    '${counterController.counter}', // or, _counterController.counter
+                    '${controller.counter}', // or, _counterController.counter
                     style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   );
@@ -43,7 +44,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 CircleAvatar(
                   child: IconButton(
                     onPressed: () {
-                      _counterController.increment();
+                      //_counterController.increment();
+                      Get.find<CounterController>().increment();
                       //setState(() {}); // not needed for getx Obx()
                     },
                     icon: const Icon(Icons.add),
@@ -55,7 +57,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 CircleAvatar(
                   child: IconButton(
                     onPressed: () {
-                      _counterController.decrement();
+                      //_counterController.decrement(); // use below line if _counterController isn't initiated
+                      Get.find<CounterController>().decrement();
                     },
                     icon: const Icon(Icons.remove),
                   ),

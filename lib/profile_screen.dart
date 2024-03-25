@@ -22,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ElevatedButton(
               onPressed: () {
                 //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const HomeScreen()),(route)=>false);
-                Get.offAll(()=> const HomeScreen()); // ^same as
+                Get.offAll(()=> const HomeScreen()); // ^same as // push first, then remove navigation stack.
                 //Get.offUntil, Get.offNamedUntil
               },
               child: const Text('go Home Screen'),

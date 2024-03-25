@@ -2,6 +2,7 @@
 // getx navigation, state management,
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_ostad/counter_controller.dart';
 import 'package:getx_ostad/home_screen.dart';
 
 void main(){runApp(const CounterApp()); }
@@ -11,9 +12,19 @@ class CounterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp( // instead of MaterialApp, for Get routing
-      home: HomeScreen(),
+    return GetMaterialApp( // instead of MaterialApp, for Get routing
+      home: const HomeScreen(),
+      initialBinding: ControllerBinder(), // for Get.put here, can use Get.find everywhere in project.
     );
   }
 }
+//at 21:00
+class ControllerBinder extends Bindings{ // <--- controller binder
+  @override
+  void dependencies() {
+    //Get.put(CounterController());
+    // ^ or, lazy put // different initialize order for CounterController -- when tries to find.
+    Get.lazyPut(() => CounterController());
+  }
 
+}

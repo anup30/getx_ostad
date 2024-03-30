@@ -76,7 +76,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ElevatedButton(
               onPressed: () {
                 //Navigator.pop(context);
-                Get.back(); // ^ can use both
+                Get.back(); // ^ can use both // getting new state of HomeScreen instead of old ! ? --------------------
               },
               child: const Text('back'),
             ),

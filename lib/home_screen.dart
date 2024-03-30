@@ -72,14 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   //Navigator.push(context, MaterialPageRoute(builder: (context)=>const ProfileScreen()));
                   //Get.to(ProfileScreen());
-                  Get.to( ()=> const ProfileScreen()); /// GetMaterialApp or Get.key needed
+                  Get.to(()=> const ProfileScreen()); /// GetMaterialApp or Get.key needed
                 },
                 child: const Text('go to  Profile Screen'),
             ),
             ElevatedButton(
               onPressed: () {
                 //Navigator.push(context, MaterialPageRoute(builder: (context)=>const SettingsScreen()));
-                Get.to( ()=> const SettingsScreen()); // also, Get.toNamed
+                Get.to(()=> const SettingsScreen()); // also, Get.toNamed
               },
               child: const Text('go to  Settings Screen'),
             ),

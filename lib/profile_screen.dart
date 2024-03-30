@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:getx_ostad/counter_controller.dart';
 import 'package:getx_ostad/home_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -19,6 +19,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            GetBuilder<CounterController>(
+                builder: (controller){
+                  return Text(
+                    '${controller.counter}', // or, _counterController.counter
+                    style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  );
+                }
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  child: IconButton(
+                    onPressed: () {
+                      Get.find<CounterController>().increment();
+                    },
+                    icon: const Icon(Icons.add),
+                  ),
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                CircleAvatar(
+                  child: IconButton(
+                    onPressed: () {
+                      Get.find<CounterController>().decrement();
+                    },
+                    icon: const Icon(Icons.remove),
+                  ),
+                ),
+              ],
+            ),
             ElevatedButton(
               onPressed: () {
                 //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const HomeScreen()),(route)=>false);

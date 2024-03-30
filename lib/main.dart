@@ -25,5 +25,4 @@ class ControllerBinder extends Bindings{ // <--- controller binder
     // ^ or, lazy put // different initialize order for CounterController -- when tries to find.
     Get.lazyPut(() => CounterController()); // fenix:false,
   }
-
 }

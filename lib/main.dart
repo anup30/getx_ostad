@@ -21,8 +21,9 @@ class CounterApp extends StatelessWidget {
 class ControllerBinder extends Bindings{ // <--- controller binder
   @override
   void dependencies() {
-    //Get.put(CounterController());
+    //Get.put(CounterController()); //ok
     // ^ or, lazy put // different initialize order for CounterController -- when tries to find.
-    Get.lazyPut(() => CounterController()); // fenix:false,
+    //Get.put(()=>CounterController()); // error: "CounterController" not found.
+    Get.lazyPut(() => CounterController()); // working with default fenix:false,
   }
 }

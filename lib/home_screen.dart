@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   //int _counter =0;
   //final CounterController _counterController = CounterController();
   //final CounterController _counterController = Get.put(CounterController());
-  final CounterController _counterController = Get.find<CounterController>(); // find if previously put in another page. (in main.dart)
+  //final CounterController _counterController = Get.find<CounterController>(); // find if previously put in another page. (in main.dart)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 CircleAvatar(
                   child: IconButton(
                     onPressed: () {
-                      _counterController.increment();
+                      //_counterController.increment();
+                      Get.find<CounterController>().increment();
                     },
                     icon: const Icon(Icons.add),
                   ),
@@ -60,7 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 CircleAvatar(
                   child: IconButton(
                     onPressed: () {
-                      _counterController.decrement();
+                      //_counterController.decrement();
+                      Get.find<CounterController>().decrement();
                     },
                     icon: const Icon(Icons.remove),
                   ),
